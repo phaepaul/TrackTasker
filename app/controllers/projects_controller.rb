@@ -1,32 +1,44 @@
 class ProjectsController < ApplicationController
-    before_action :authenticate_user!
-    before_action :find_project, only: %i[ show destroy update ]
+  before_action :authenticate_user!
+  before_action :find_project, except: [:index, :new, :create]
 
-    def index
-      @projects = Projects.all
-    end
+  def index
+    @projects = Project.all
+  end
 
-    def show
-    end
+  def show
+  end
 
-    def update
-      @project.update(permitted_params)
-    end
+  def new
+    @project = Project.new
+  end
 
-    def destroy
-      @project.destroy!
+  def create
+    @project = Project.create(project_params)
 
-      head :no_content
-    end
+    redirect_to @project, notice: 'Created Successfully'
+  end
 
-    private
+  def update
+    @project.update(project_params)
 
-    def permitted_params
-      params.permit(:id)
-    end
+    redirect_to @project, notice: 'Updated Successfully'
+  end
 
-    def find_project
-      @project = Project.find(params[:id])
-    end
+  def destroy
+    @project.destroy!
+
+    redirect_to :root, notice: "Deleted Successfully."
+  end
+
+  private
+
+  def project_params
+    params.required(:project).permit(:name, :customer_id)
+  end
+
+  def find_project
+    @project = Project.find(params[:id])
+  end
 
 end

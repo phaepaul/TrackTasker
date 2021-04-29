@@ -1,0 +1,15 @@
+<h2>Customers</h2>
+
+<div class="button-container">
+  <% @customers.each do |customer| %>
+    <div class="m-top">
+      <%= link_to customer do %>
+        Customer: <%= customer.name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Create a customer', new_customer_path %>
+</div>

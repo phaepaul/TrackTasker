@@ -1,0 +1,5 @@
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name %>
+  <%= f.association :customer, as: :radio_buttons %>
+  <%= f.button :submit %>
+<% end %>

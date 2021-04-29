@@ -1,0 +1,14 @@
+<h3> Project #<%= @project.id %> </h3>
+
+<div>
+  Name: <%= @project.name %>
+  <br>
+  Customer Id: <%= @project.customer_id %>
+  <br>
+  Created at <%= @project.created_at.strftime('%m/%d/%Y @ %I:%M%p') %>
+</div>
+
+<div class="button-container">
+  <%= link_to "Edit", edit_project_path %>
+  <%= link_to "Delete", project_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

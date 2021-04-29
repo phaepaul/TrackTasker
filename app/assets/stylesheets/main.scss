@@ -17,10 +17,56 @@
  @import 'colors';
 
 html, body {
-  display: flex;
-  justify-content: center;
   background: $grey-7;
   color: $white;
-  flex-direction: column;
+}
+
+#main {
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.notice {
+  color: lightgreen;
+}
+
+.error {
+  color: red;
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid $grey-2;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.m-top {
+  margin-top: .75rem;
+}
+
+a {
+  border-radius: .25rem;
+  padding: .25rem;
+  background-color: $grey-5;
+  color: $white;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: $grey-7;
+}
+
+a:active {
+  background-color: $black;
+}
+
+.button-container {
+  margin: 1rem;
+}
+
+.radio {
+  display: block;
 }

@@ -1,0 +1,16 @@
+<h2>Projects</h2>
+
+<div class="button-container">
+  <% @projects.each do |project| %>
+    <div class="m-top">
+      <%= link_to project do %>
+        Project: <%= project.name %>
+
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Create a project', new_project_path %>
+</div>

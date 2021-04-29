@@ -1,0 +1,15 @@
+<h3> Task #<%= @task.id %> </h3>
+
+<div>
+  Name: <%= @task.description %>
+  <br>
+  Project: <%= @task&.project&.name %>
+  <br>
+  Created at <%= @task.created_at.strftime('%m/%d/%Y @ %I:%M%p') %>
+</div>
+
+<div class="button-container">
+  <%= link_to "Edit", edit_task_path %>
+  <%= link_to "Delete", task_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</div>

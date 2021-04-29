@@ -1,0 +1,5 @@
+<%= simple_form_for @task_log do |f| %>
+  <%= f.input :duration_minutes %>
+  <%= f.association :task, label_method: :description %>
+  <%= f.button :submit %>
+<% end %>

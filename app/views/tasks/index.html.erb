@@ -1,0 +1,17 @@
+<h2>Tasks</h2>
+
+<div class="button-container">
+  <% @tasks.each do |task| %>
+    <div class="m-top">
+      <%= link_to task do %>
+        Task: <%= task.description %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Create a task', new_task_path %>
+
+  <%= link_to "Log Time", new_task_log_path %>
+</div>

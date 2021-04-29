@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="links">
+      <%= link_to 'Customers', customers_path %>
+      <%= link_to 'Projects', projects_path %>
+      <%= link_to 'Tasks', tasks_path %>
+    </div>
+    <div class="notifications">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <div id="main" class="card">
+      <%= yield %>
+    </div>
+    <div id="footer">
+    </div>
   </body>
 </html>
