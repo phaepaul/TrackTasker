@@ -1,5 +1,5 @@
 puts 'Seeding database'
-user = User.create()
+user = User.create(email: "olive@gmail.com", password: 'test1')
 customer = Customer.create(name: "Parish")
 project = Project.create(customer: customer, name: "Fix House")
 task = Task.create(description: "Retile the bathroom", project: project)
