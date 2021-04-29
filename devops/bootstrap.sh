@@ -5,16 +5,11 @@ echo "------------ Starting provisioning script --------------------------------
 
 sudo apt-get update && sudo apt-get -y upgrade
 
-echo "------------ MySQL ------------------------------------------------------------"
-sudo apt-get install -y libmysqlclient-dev
-echo "mysql-server mysql-server/root_password password $DBPASSWD" | sudo debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $DBPASSWD" | sudo debconf-set-selections
-sudo apt-get install -y mysql-server-5.7
-mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME"
-mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to 'root'@'%' identified by '$DBPASSWD'"
-mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBPASSWD'"
-mysql -uroot -p$DBPASSWD -e "ALTER DATABASE $DBNAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;"
+echo "------------------NodeJS ------------------------------------------"
+curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
+npm install --global yarn
 
 echo "---------------- RVM -----------------------------------------------"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
